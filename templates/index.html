@@ -8,7 +8,7 @@
     font-family: Arial, Helvetica, sans-serif;
     }
 
-    .navbar {
+    .dash {
     overflow: hidden;
     position: fixed;
     bottom: 0;
@@ -18,7 +18,7 @@
     opacity:0.6;
     }
 
-    .navbar a {
+    .dash a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -28,11 +28,11 @@
     font-size: 17px; 
     }
 
-    .navbar a:hover {
+    .dash a:hover {
 
     }
 
-    .navbar a.active {
+    .dash a.active {
     background-color: #4CAF50;
     color: white;
     }
@@ -96,7 +96,7 @@
     background-size: cover;
     }
 
-    .top-right-logo {
+    .title {
     position: absolute;
     top: 3%;
     left: 2%;
@@ -125,13 +125,31 @@
         <img  class="camera-bg" style="width: 100vw; background-attachment: fixed;" id="bg" class="center" src="{{ url_for('video_feed') }}">
         </div>
 
-        <div class="top-right-logo">
-            <a></a>Raspberry Pi - Camera Stream </a>
+        <div class="title">
+            <a></a>SmartLock LockBox</a>
         </div>
 
-        <div class="navbar">
-            <div class="ignoreCall">
-                <a id=decline class="but_def">
+        <div class="dash">
+            <div class="doorLock">
+                <a id=doorUnlock>
+                    <button id="button"> 
+                        <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    </button>
+                </a>
+                <a id=doorLock>
+                    <button id="button"> 
+                        <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    </button>
+                </a>       
+            </div>
+
+            <div class="lockBox">
+                <a id=boxUnlock>
+                    <button id="button"> 
+                        <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    </button>
+                </a>
+                <a id=boxLock>
                     <button id="button"> 
                         <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                     </button>
@@ -142,17 +160,27 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript">
         
-        var button = document.getElementById('button');
+            const doorLock = document.getElementById('doorUnlock');
+            var doorUnlock = document.getElementById('doorLock');
+            var boxLock = document.getElementById('boxUnlock');
+            var boxUnlock = document.getElementById('boxLock');
 
-        button.onclick = function() {
-            var div = document.getElementById('newpost');
-            if (div.style.display !== 'none') {
-                div.style.display = 'none';
-            }
-            else {
-                div.style.display = 'block';
-            }
-        };
+            doorLock.onclick = function() {
+                console.log('yello')
+            };
+
+            doorUnlock.onclick = function() {
+                console.log('yello')
+            };
+
+            boxLock.onclick = function() {
+                console.log('yello')
+            };
+
+            boxUnlock.onclick = function() {
+                console.log('yello')
+            };
+
         
         </script>
     </body>
