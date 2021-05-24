@@ -1,120 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    }
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            }
 
-    .dash {
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin: auto;
-    background-color: black;
-    opacity:0.6;
-    }
+            .dash {
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin: auto;
+            background-color: black;
+            opacity:0.6;
+            }
 
-    .dash a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px; 
-    }
+            .dash a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px; 
+            }
 
-    .dash a:hover {
+            .main {
+            padding: 16px;
+            margin-bottom: 30px;
+            }
 
-    }
+            .camera-movement{ 
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
 
-    .dash a.active {
-    background-color: #4CAF50;
-    color: white;
-    }
+            .lights-button{
+                float: right;
+            }
 
-    .main {
-    padding: 16px;
-    margin-bottom: 30px;
-    }
+            i.fa {
+            display: inline-block;
+            border-radius: 60px;
+            box-shadow: 0px 0px 2px #888;
+            padding: 0.5em 0.6em;
+            }
 
-    .camera-movement{ 
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 35%
+            }
 
-    .lights-button{
-        float: right;
-    }
+            button {
+                background-color: Transparent;
+                background-repeat:no-repeat;
+                border: none;
+                cursor:pointer;
+                overflow: hidden;
+                outline:none;
+            }
 
-    i.fa {
-    display: inline-block;
-    border-radius: 60px;
-    box-shadow: 0px 0px 2px #888;
-    padding: 0.5em 0.6em;
-    }
+            .bg {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
 
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 35%
-    }
+            /* Preserve aspet ratio */
+            min-width: 100%;
+            min-height: 100%;
 
-    button {
-        background-color: Transparent;
-        background-repeat:no-repeat;
-        border: none;
-        cursor:pointer;
-        overflow: hidden;
-        outline:none;
-    }
-
-    .camera-bg {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%;
-
-        /* Full height */
-    height: 100%;
+                /* Full height */
+            height: 100%;
 
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
 
-    .title {
-    position: absolute;
-    top: 3%;
-    left: 2%;
-    font-size: 38px;
-    color: white;
-    opacity: 0.5;
-    }
+            .title {
+            position: absolute;
+            top: 3%;
+            left: 2%;
+            font-size: 38px;
+            color: white;
+            opacity: 0.5;
+            }
 
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        background-color: black;
-    }
-</style>
-</head>
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                background-color: black;
+            }
+        </style>
+    </head>
 
     <title>SmartLock LockBox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,7 +113,7 @@
 
     <body>
         <div class="main" id="newpost">
-        <img  class="camera-bg" style="width: 100vw; background-attachment: fixed;" id="bg" class="center" src="{{ url_for('video_feed') }}">
+            <img  class="bg" src="{{ url_for('video_feed') }}">
         </div>
 
         <div class="title">
@@ -130,34 +121,28 @@
         </div>
 
         <div class="dash">
-            <div class="doorLock">
-                <a id=doorUnlock>
-                    <button id="button"> 
-                        <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+            <a id=doorUnlock>
+                <button id="button"> 
+                    <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                     </button>
-                </a>
-                <a id=doorLock>
-                    <button id="button"> 
-                        <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>       
-            </div>
-
-            <div class="lockBox">
-                <a id=boxUnlock>
-                    <button id="button"> 
-                        <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>
-                <a id=boxLock>
-                    <button id="button"> 
-                        <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>       
-            </div>
+            </a>
+            <a id=doorLock>
+                <button id="button"> 
+                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </button>
+            </a>       
+            <a id=boxUnlock>
+                <button id="button"> 
+                    <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </button>
+            </a>
+            <a id=boxLock>
+                <button id="button"> 
+                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </button>
+            </a>       
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript">
         
             const doorLock = document.getElementById('doorUnlock');
@@ -180,8 +165,6 @@
             boxUnlock.onclick = function() {
                 console.log('yello')
             };
-
-        
         </script>
     </body>
 </html>
