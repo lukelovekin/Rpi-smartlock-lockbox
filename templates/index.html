@@ -16,10 +16,15 @@
             margin: auto;
             background-color: black;
             opacity:0.6;
+            text-align: center;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: space-evenly;
             }
 
             .dash a {
-            float: left;
             display: block;
             color: #f2f2f2;
             text-align: center;
@@ -29,11 +34,11 @@
             }
 
             .boxCont {
-                background-color: #f2f2f2;
+                background-color: #928888;
             }
 
             .doorCont {
-                background-color: #f2f2f2;
+                background-color: #e2d7d7;
             }
 
             .main {
@@ -80,16 +85,9 @@
             position: fixed; 
             top: 0; 
             left: 0; 
-
-            /* Preserve aspet ratio */
             min-width: 100%;
             min-height: 100%;
-
-                /* Full height */
             height: 100%;
-
-
-            /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -112,6 +110,16 @@
                 overflow: hidden;
                 background-color: black;
             }
+
+            h2 {
+                width: 100%;
+                margin-left: 1rem;
+            }
+
+            h4 {
+                margin: 0;
+                padding-top: 1rem;
+            }
         </style>
     </head>
 
@@ -124,40 +132,44 @@
             <img  class="bg" src="{{ url_for('video_feed') }}">
         </div>
 
-        <div class="title">
-            <a></a>SmartLock LockBox</a>
-        </div>
+        <h2 class="title">
+            SmartLock LockBox
+        </h2>
 
         <div class="dash">
             <div class="doorCont">
                 <h4>
                     Door
                 </h4>
-                <a id=doorUnlock>
-                    <button id="button"> 
-                        <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
+                <div class="buttons">
+                    <a id=doorUnlock>
+                        <button id="button"> 
+                            <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
+                            </button>
+                    </a>
+                    <a id=doorLock>
+                        <button id="button"> 
+                            <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
                         </button>
-                </a>
-                <a id=doorLock>
-                    <button id="button"> 
-                        <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>       
+                    </a>       
+                </div>
             </div>
             <div class="boxCont">
                 <h4>
                     Box
                 </h4>
-                <a id=boxUnlock>
-                    <button id="button"> 
-                        <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>
-                <a id=boxLock>
-                    <button id="button"> 
-                        <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
-                    </button>
-                </a>       
+                <div class="buttons">
+                    <a id=boxUnlock>
+                        <button id="button"> 
+                            <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                    <a id=boxLock>
+                        <button id="button"> 
+                            <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                        </button>
+                    </a>       
+                </div>
             </div>
         </div>
 
