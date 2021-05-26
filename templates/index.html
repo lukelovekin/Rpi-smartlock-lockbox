@@ -12,7 +12,7 @@
             overflow: hidden;
             position: fixed;
             bottom: 0;
-            width: 100%;
+            width: 100vw;
             margin: auto;
             background-color: black;
             opacity:0.6;
@@ -26,6 +26,14 @@
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px; 
+            }
+
+            .boxCont {
+                background-color: #f2f2f2;
+            }
+
+            .doorCont {
+                background-color: #f2f2f2;
             }
 
             .main {
@@ -121,26 +129,36 @@
         </div>
 
         <div class="dash">
-            <a id=doorUnlock>
-                <button id="button"> 
-                    <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+            <div class="doorCont">
+                <h4>
+                    Door
+                </h4>
+                <a id=doorUnlock>
+                    <button id="button"> 
+                        <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
+                        </button>
+                </a>
+                <a id=doorLock>
+                    <button id="button"> 
+                        <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
                     </button>
-            </a>
-            <a id=doorLock>
-                <button id="button"> 
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                </button>
-            </a>       
-            <a id=boxUnlock>
-                <button id="button"> 
-                    <i style="background: green; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                </button>
-            </a>
-            <a id=boxLock>
-                <button id="button"> 
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
-                </button>
-            </a>       
+                </a>       
+            </div>
+            <div class="boxCont">
+                <h4>
+                    Box
+                </h4>
+                <a id=boxUnlock>
+                    <button id="button"> 
+                        <i style="background: green; color: white;" class="fa fa-unlock fa-2x" aria-hidden="true"></i>
+                    </button>
+                </a>
+                <a id=boxLock>
+                    <button id="button"> 
+                        <i style="background: red; color: white;" class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                    </button>
+                </a>       
+            </div>
         </div>
 
         <script type="text/javascript">

@@ -1,13 +1,11 @@
 from flask import Flask, render_template, Response
 from camera import VideoCamera
-# import time
-# import threading
-# import os
+
 
 pi_camera = VideoCamera(flip=False)
 
-# App Globals (do not edit)
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
