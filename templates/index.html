@@ -178,13 +178,11 @@
         <script type="text/javascript">
         
             const doorLock = document.getElementById('doorUnlock');
-            var doorUnlock = document.getElementById('doorLock');
-            var boxLock = document.getElementById('boxUnlock');
-            var boxUnlock = document.getElementById('boxLock');
+            const doorUnlock = document.getElementById('doorLock');
+            const boxLock = document.getElementById('boxUnlock');
+            const boxUnlock = document.getElementById('boxLock');
 
-            doorLock.onclick = function() {
-                console.log('yello')
-            };
+            doorLock.addEventListener("click", () => console.log('yello'))
 
             doorUnlock.onclick = function() {
                 console.log('yello')
