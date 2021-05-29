@@ -181,10 +181,6 @@
             const Http = new XMLHttpRequest();
             let action = ""
             const url = `https://api.particle.io/v1/devices/7ab7486eb85c399cdb1e3eae/${func}`
-            const headers = {
-                'Authorization': 'Bearer ' + access_token,
-                'Accept': 'application/json'
-            }
         
             const doorUnlock = document.getElementById('doorUnlock');
             const doorLock = document.getElementById('doorLock');
@@ -193,7 +189,9 @@
 
             const handlePost = (action) => {
                 Http.open("POST", url)
-                Http.setRequestHeader(headers);
+                Http.setRequestHeader('Authorization', 'Bearer' + access_token);
+                Http.setRequestHeader('Accept', 'application/json');
+                Http.setRequestHeader('Content-type', 'application/json');
                 Http.onreadystatechange = function() { // Call a function when the state changes.
                     if (Http.readyState === XMLHttpRequest.DONE && Http.status === 200) {
                         // Request finished. Do processing here.
