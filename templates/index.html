@@ -215,11 +215,13 @@
             };
 
             boxLock.onclick = function() {
+                func = "box"
                 action = "lockbox"
                 handlePost(action)
             };
 
             boxUnlock.onclick = function() {
+                func = "box"
                 action = "unlockbox"
                 handlePost(action)
             };
