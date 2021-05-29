@@ -189,6 +189,7 @@
             const boxLock = document.getElementById('boxLock');
 
             const handlePost = (action) => {
+                let document = {"action":"lockbox"}
                 Http.open("POST", url)
                 Http.setRequestHeader('Authorization', 'Bearer ' + access_token);
                 Http.setRequestHeader('Content-Type', 'application/json');
@@ -198,7 +199,7 @@
                 //     }
                 // }
                 console.log("still success")
-                Http.send({"action":"lockdoor"})
+                Http.send(document)
             }
 
             doorLock.onclick =  function() {
