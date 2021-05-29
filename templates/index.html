@@ -179,15 +179,16 @@
             const access_token = "2f25756f35df55a12968e7c880e4dce3c277501b"
             const devId = "7ab7486eb85c399cdb1e3eae"
             const Http = new XMLHttpRequest();
-            let func = ""
-            let action = ""
+
         
             const doorUnlock = document.getElementById('doorUnlock');
             const doorLock = document.getElementById('doorLock');
             const boxUnlock = document.getElementById('boxUnlock');
             const boxLock = document.getElementById('boxLock');
 
-            const handlePost = (action) => {
+            const handlePost = (action, func) => {
+                let func = func
+                let action = action
                 let url = `https://api.particle.io/v1/devices/${devId}/${func}`
                 let body = {"action":action}
                 Http.open("POST", url)
@@ -206,27 +207,27 @@
             doorLock.onclick =  function() {
                 func = "door"
                 action = "lock"
-                handlePost(action)
+                handlePost(action, func)
             }
 
             doorUnlock.onclick = function() {
                 func = "door"
                 action = "unlock"
-                handlePost(action)
+                handlePost(action, func)
 
             };
 
             boxLock.onclick = function() {
                 func = "box"
                 action = "lockbox"
-                handlePost(action)
+                handlePost(action, func)
 
             };
 
             boxUnlock.onclick = function() {
                 func = "box"
                 action = "unlockbox"
-                handlePost(action)
+                handlePost(action, func)
 
             };
 
