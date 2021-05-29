@@ -181,7 +181,6 @@
             const Http = new XMLHttpRequest();
             let func = ""
             let action = ""
-            let url = `https://api.particle.io/v1/devices/${devId}/${func}`
         
             const doorUnlock = document.getElementById('doorUnlock');
             const doorLock = document.getElementById('doorLock');
@@ -189,6 +188,7 @@
             const boxLock = document.getElementById('boxLock');
 
             const handlePost = (action) => {
+                let url = `https://api.particle.io/v1/devices/${devId}/${func}`
                 let body = {"action":action}
                 Http.open("POST", url)
                 Http.setRequestHeader('Authorization', 'Bearer ' + access_token);
