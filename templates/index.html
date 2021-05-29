@@ -181,7 +181,7 @@
             const devId = "7ab7486eb85c399cdb1e3eae"
             const Http = new XMLHttpRequest();
             let action = ""
-            const url = `https://api.particle.io/v1/devices/${devId}/${func}?access_token=${access_token}`
+            const url = `https://api.particle.io/v1/devices/${devId}/${func}`
         
             const doorUnlock = document.getElementById('doorUnlock');
             const doorLock = document.getElementById('doorLock');
@@ -190,6 +190,7 @@
 
             const handlePost = (action) => {
                 Http.open("POST", url)
+                Http.setRequestHeader('Authorization', 'Bearer ' + access_token);
                 Http.setRequestHeader('Content-Type', 'application/json');
                 // Http.onreadystatechange = function() {
                 //     if (Http.readyState === XMLHttpRequest.DONE && Http.status === 200) {
