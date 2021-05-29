@@ -181,7 +181,7 @@
             const devId = "7ab7486eb85c399cdb1e3eae"
             const Http = new XMLHttpRequest();
             let action = ""
-            const url = `https://api.particle.io/v1/devices/${devId}/${func}`
+            const url = `https://api.particle.io/v1/devices/${devId}/${func}?access_token=${access_token}`
         
             const doorUnlock = document.getElementById('doorUnlock');
             const doorLock = document.getElementById('doorLock');
