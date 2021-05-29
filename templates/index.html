@@ -176,10 +176,10 @@
         </div>
 
         <script type="text/javascript">
-            const access_token = "a80e7c526a6d15a9cf24bce573f3fcbd3593d3ed"
-            const func = "doorlock"
+            const access_token = "2f25756f35df55a12968e7c880e4dce3c277501b"
             const devId = "7ab7486eb85c399cdb1e3eae"
             const Http = new XMLHttpRequest();
+            let func = ""
             let action = ""
             const url = `https://api.particle.io/v1/devices/${devId}/${func}`
         
@@ -203,12 +203,14 @@
             }
 
             doorLock.onclick =  function() {
-                action = "lockdoor"
+                func = "door"
+                action = "lock"
                 handlePost(action)
             }
 
             doorUnlock.onclick = function() {
-                action = "unlockdoor"
+                func = "door"
+                action = "unlock"
                 handlePost(action)
             };
 
